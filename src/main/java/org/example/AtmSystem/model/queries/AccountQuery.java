@@ -7,6 +7,7 @@ public class AccountQuery {
             accountNumber varchar(50),
             pin int ,
             balance double,
+            cardStatus varchar,
             foreign key id references tb_user(id)
             )
             """;
@@ -15,10 +16,12 @@ public class AccountQuery {
             insert into tb_account(
             accountNumber,
             pin,
-            balance)
+            balance,
+            cardStatus
+            )
                         
                       
-            values(?,?,?,?,?,?,?,?)
+            values(?,?,?,?)
             """;
 
     public final static String UPDATE_QUERY = """
@@ -26,6 +29,7 @@ public class AccountQuery {
               set accountNumber=?,
                    pin=?,
                    balance=?
+                   cardStatus=?
              where id=?
 
             """;
